@@ -1,6 +1,6 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GeoPicks: subsurface mapping from raster well logs and seismic</title>
-<meta name="description" content="Pick tops on scanned well logs, tie in 2D and 3D seismic, contour structure and isopach maps, and export a prospect pack. Runs on your own machine.">
+<meta name="description" content="GeoPicks is a Mac and Windows app for picking tops on scanned PDF well logs, tying wells to 2D and 3D seismic, and building structure and isopach maps from your picks. Runs on your own machine.">
 <style>
 :root{--o:#e8783c;--bg:#121212;--fg:#e8e8e8;--mut:#a0a0a0}
 *{box-sizing:border-box}body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.55}
@@ -12,7 +12,8 @@ a.btn,button{background:var(--o);color:#111;border:0;border-radius:8px;padding:1
 .hero p{color:var(--mut);font-size:19px;max-width:720px;margin:0 auto 26px}
 .shot{margin:30px 0;border-radius:10px;width:100%;box-shadow:0 10px 40px #0008}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin:30px 0}
-.card{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:10px;padding:20px}.card h3{margin:0 0 6px;color:var(--o);font-size:17px}.card p{margin:0;color:var(--mut)}
+.ty{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:10px;padding:24px;max-width:560px}.ty h3{margin:0 0 10px;color:var(--o)}.ty p,.ty li{color:var(--mut)}.ty .dl{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}.err{color:#ff8a80;font-size:14px;margin:0}
+[hidden]{display:none!important}a{color:var(--o)}.card{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:10px;padding:20px}.card h3{margin:0 0 6px;color:var(--o);font-size:17px}.card p{margin:0;color:var(--mut)}
 section{padding:30px 0}h2{font-size:28px;margin:0 0 12px}
 form{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:10px;padding:24px;display:grid;gap:12px;max-width:560px}
 input,select,textarea{width:100%;padding:11px;border-radius:7px;border:1px solid #333;background:#111;color:var(--fg);font-size:15px}
@@ -22,29 +23,67 @@ label{font-size:14px;color:var(--mut)}footer{color:var(--mut);font-size:14px;pad
 <header><div class="logo">GEO<span>PICKS</span></div><a class="btn" href="#beta">Join the beta</a></header>
 <div class="hero">
 <h1>Map prospects from scanned logs and seismic, on your own machine.</h1>
-<p>GeoPicks lets you pick tops on raster well logs, correlate across a section, tie wells to 2D and 3D seismic, contour structure and isopach maps, and export a prospect pack. No LAS files, no cloud upload, and no dongle.</p>
+<p>GeoPicks is a native Mac and Windows app for subsurface mapping. Pick tops on scanned well logs, correlate across sections, tie your wells to 2D and 3D seismic, and build structure and isopach maps from your picks. No LAS files required, no cloud upload, and no dongle.</p>
 <a class="btn" href="#beta">Get free beta access</a>
 <img class="shot" src="screenshot.jpg" alt="GeoPicks correlation panel and basemap for a 27-well Louisiana field">
 </div>
 <div class="grid">
-<div class="card"><h3>Raster-native</h3><p>Works directly on PDF and TIFF well logs, so there's no digitizing before you can map.</p></div>
-<div class="card"><h3>Pick and correlate</h3><p>Hang wells on a datum, pick tops across sections, and catch bad picks with QC checks.</p></div>
-<div class="card"><h3>Seismic, tied to wells</h3><p>Load 2D or 3D SEG-Y, post well ties and synthetics, and pick horizons that feed your maps.</p></div>
-<div class="card"><h3>Maps you can use</h3><p>Structure and isopach contours, cross sections, and exports to ZMap, shapefile, PDF and PowerPoint.</p></div>
-<div class="card"><h3>Yours, offline</h3><p>Runs on your own Mac or Windows PC. Your data never leaves your machine.</p></div>
+<div class="card"><h3>Raster-native logs</h3><p>Pick directly on scanned PDF well logs. There's no digitizing and no LAS files needed before you can map.</p></div>
+<div class="card"><h3>Pick and correlate</h3><p>Hang wells on a datum, pick tops across cross sections, and catch bad picks with QC checks.</p></div>
+<div class="card"><h3>2D and 3D seismic</h3><p>Load 2D lines and 3D SEG-Y volumes. View inlines, crosslines, time slices, and arbitrary lines through your wells.</p></div>
+<div class="card"><h3>Wells tied to seismic</h3><p>See your well tops posted on the seismic at their two-way times. Enter a checkshot, or build a synthetic seismogram from sonic and density logs and use it as the well's time-depth.</p></div>
+<div class="card"><h3>Horizons that feed your maps</h3><p>Pick and auto-track horizons on 2D and 3D seismic. They're depth-converted and used alongside your well picks as structure-map control.</p></div>
+<div class="card"><h3>Maps from your picks</h3><p>GeoPicks computes structure and isopach contours from your picks and labels them as automated, so you treat them as a starting point and check them against your own interpretation.</p></div>
+<div class="card"><h3>Exports you can use</h3><p>ZMap grids, shapefiles, a PowerPoint deck, and a PDF prospect pack.</p></div>
+<div class="card"><h3>Yours, offline</h3><p>A native app on your own Mac or Windows PC. Your data never leaves your machine. The Bear Head Creek demo field, 27 wells with tops already picked, opens on first launch so you can try it right away.</p></div>
 </div>
 <section><h2>Built by a geologist, for independents</h2>
 <p style="color:var(--mut);max-width:760px">Since finishing my PhD at Tulane, I've wanted to prospect independently, but traditional subsurface mapping software costs thousands of dollars a year in licensing. So I built GeoPicks for geologists, independents, and consultants who map from well logs and seismic. It reads data from SONRIS, the Texas RRC, IHS/Enverus, Petra and Kingdom exports. It also loads 2D and 3D SEG-Y, ties your wells to the seismic, and lets you pick horizons that feed your structure maps. <br><br>J. Kevin Reece, PhD</p></section>
 <section id="beta"><h2>Join the beta</h2>
 <p style="color:var(--mut)">Beta testers get six months free in exchange for honest feedback. It runs on Mac and Windows.</p>
-<!-- Replace YOUR_FORM_ID with a free Formspree form id (formspree.io) so sign-ups arrive in your email -->
-<form action="https://formspree.io/f/xjygpvqe" method="POST">
+<form id="betaForm" action="https://formspree.io/f/xjygpvqe" method="POST">
 <label>Name<input name="name" required></label>
 <label>Email<input type="email" name="email" required></label>
 <label>Company (optional)<input name="company"></label>
 <label>Computer<select name="platform"><option>Windows</option><option>Mac</option><option>Both</option></select></label>
 <label>Where do you map, and what data do you use?<textarea name="notes" rows="3" placeholder="e.g., South Louisiana, SONRIS raster logs"></textarea></label>
 <button type="submit">Request beta access</button>
-</form></section>
-<footer>© 2026 GeoPicks · J. Kevin Reece</footer>
+<p class="err" id="betaErr" role="alert" hidden></p>
+</form>
+<div class="ty" id="betaThanks" tabindex="-1" hidden>
+<h3>Thanks, you're in.</h3>
+<p>Download GeoPicks for your computer:</p>
+<div class="dl">
+<a class="btn" id="dlMac" href="https://github.com/reecejk/geopicks-beta/releases/latest/download/GeoPicks-mac.dmg">Download for Mac</a>
+<a class="btn" id="dlWin" href="https://github.com/reecejk/geopicks-beta/releases/latest/download/GeoPicks-windows-setup.exe">Download for Windows</a>
+</div>
+<ul>
+<li><b>Mac:</b> open the .dmg and drag GeoPicks into Applications. The first time, right-click GeoPicks and choose Open. On macOS Sequoia, if it won't open, go to System Settings &gt; Privacy &amp; Security and click Open Anyway.</li>
+<li><b>Windows:</b> run the installer. If SmartScreen appears, click More info, then Run anyway.</li>
+</ul>
+<p>The beta isn't code-signed yet, which is why you'll see those warnings. Full install notes are on the <a href="https://github.com/reecejk/geopicks-beta#readme">download page</a>.</p>
+<p>GeoPicks needs a license key to run. I sign each key myself, so your free 6-month beta key will come by email from me within 1 business day.</p>
+<p>Questions or feedback: <a href="mailto:geopicks.software@gmail.com">geopicks.software@gmail.com</a></p>
+</div>
+<script>
+(function(){
+  var f=document.getElementById('betaForm'); if(!f||!window.fetch||!window.FormData) return;
+  var ty=document.getElementById('betaThanks'), err=document.getElementById('betaErr'), btn=f.querySelector('button[type=submit]');
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); err.hidden=true; btn.disabled=true; btn.textContent='Sending...';
+    var plat=(f.elements.platform.value||'').toLowerCase();
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+      .then(function(r){ if(!r.ok) throw new Error('status '+r.status);
+        document.getElementById('dlMac').hidden=(plat==='windows');
+        document.getElementById('dlWin').hidden=(plat==='mac');
+        f.hidden=true; ty.hidden=false; ty.focus(); })
+      .catch(function(){
+        btn.disabled=false; btn.textContent='Request beta access';
+        err.innerHTML='Sorry, that didn\'t go through. Please try again, or email <a href="mailto:geopicks.software@gmail.com">geopicks.software@gmail.com</a> and I\'ll get you set up.';
+        err.hidden=false; });
+  });
+})();
+</script>
+</section>
+<footer>© 2026 GeoPicks · J. Kevin Reece · <a href="mailto:geopicks.software@gmail.com">geopicks.software@gmail.com</a></footer>
 </div></body></html>
