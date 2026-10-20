@@ -1,0 +1,50 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Privacy · GeoPicks</title>
+<meta name="description" content="What the GeoPicks app and the getgeopicks.com site send over the network, and what they don't.">
+<link rel="canonical" href="https://getgeopicks.com/privacy.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#121212">
+<meta property="og:type" content="website"><meta property="og:site_name" content="GeoPicks">
+<meta property="og:title" content="Privacy · GeoPicks"><meta property="og:description" content="GeoPicks runs on your own machine. Here is exactly what it sends over the network.">
+<meta property="og:url" content="https://getgeopicks.com/privacy.html"><meta property="og:image" content="https://getgeopicks.com/og.jpg">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://getgeopicks.com/og.jpg">
+<style>
+:root{--o:#e8783c;--bg:#121212;--fg:#e8e8e8;--mut:#a0a0a0}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
+.wrap{max-width:780px;margin:0 auto;padding:0 22px}
+header{padding:22px 0;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;letter-spacing:.08em;font-size:22px;color:var(--fg);text-decoration:none}.logo span{color:var(--o)}
+a{color:var(--o)}h1{font-size:clamp(28px,5vw,40px);margin:20px 0 8px}h2{font-size:21px;margin:30px 0 8px;color:var(--o)}
+p,li{color:#c8c8c8}ul{padding-left:20px}li{margin:6px 0}.mut{color:var(--mut);font-size:14px}code{font-size:14px;color:var(--fg)}
+footer{color:var(--mut);font-size:14px;padding:40px 0;border-top:1px solid #222;margin-top:40px}
+</style></head><body><div class="wrap">
+<header><a class="logo" href="./">GEO<span>PICKS</span></a><a href="./#beta">Join the beta</a></header>
+<h1>Privacy</h1>
+<p class="mut">Last updated October 2026.</p>
+
+<h2>The app runs on your machine</h2>
+<p>GeoPicks is a desktop app. Its engine runs on your own Mac or Windows PC and only accepts connections from that computer. Your projects (logs, picks, maps, seismic, grids) and your license key are stored in your own user folder (<code>~/Library/Application Support/GeoPicks</code> on a Mac, <code>%APPDATA%\GeoPicks</code> on Windows) and are never uploaded. License keys are checked on your computer; there is no activation server. The app has no analytics, telemetry or crash reporting.</p>
+
+<h2>What the app sends over the network</h2>
+<p>None of these sends your project files. Each one goes straight from your computer to the service named.</p>
+<ul>
+<li><b>Update check (GitHub).</b> At most once a day when GeoPicks starts, and whenever you click <i>Check for updates</i>, it asks GitHub for the latest GeoPicks release. If you click <i>Update now</i>, the installer is downloaded from GitHub. GitHub sees a normal web request (your IP address and the GeoPicks version).</li>
+<li><b>Elevation lookup (USGS), only when you click it.</b> The KB editor's ground-level lookup sends the latitude and longitude of the wells you're looking up to the USGS elevation service.</li>
+<li><b>Township/range/section grid (BLM), only when you turn it on.</b> The T-R-S overlay sends the bounding box around your located wells to the BLM land-survey (PLSS) service. The result is saved with the project, so it isn't fetched again.</li>
+<li><b>Street basemap (OpenStreetMap), only when you choose it.</b> The <i>Streets</i> background loads map tiles from OpenStreetMap, which reveals the area of the map you're viewing. The default <i>Plain</i> background loads nothing.</li>
+<li><b>Fonts and map library.</b> In the current version (GeoPicks 1.6.3), the app window loads its typefaces from Google Fonts, and opening a project loads the Leaflet map library from unpkg.com. These are ordinary web requests (your IP address); no project data goes with them.</li>
+</ul>
+<p>Links you click (release notes, the download page, email) open in your web browser.</p>
+
+<h2>This website</h2>
+<ul>
+<li>No analytics, no tracking scripts, no cookies. The site is plain HTML hosted on GitHub Pages, which, like any web host, receives your IP address when you visit.</li>
+<li>The beta signup form sends your name, email, company, platform and notes to <a href="https://formspree.io">Formspree</a>, which emails them to me. I use them to send your beta license key and to follow up about GeoPicks.</li>
+<li>The <a href="feedback.html">beta feedback form</a> sends your answers to Formspree the same way, which emails them to me. I use them to send your additional 3-month key and to improve GeoPicks, and I quote you on this website only if you said yes on the form.</li>
+<li>The download buttons fetch the installer from GitHub.</li>
+</ul>
+
+<h2>Questions</h2>
+<p>Email <a href="mailto:geopicks.software@gmail.com">geopicks.software@gmail.com</a>, including if you'd like your signup details removed.</p>
+<footer>© 2026 GeoPicks · J. Kevin Reece · <a href="mailto:geopicks.software@gmail.com">geopicks.software@gmail.com</a> · <a href="./">Home</a> · <a href="feedback.html">Beta feedback</a></footer>
+</div></body></html>

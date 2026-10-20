@@ -1,31 +1,53 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>GeoPicks: subsurface mapping from raster well logs and seismic</title>
-<meta name="description" content="GeoPicks is a Mac and Windows app for picking tops on scanned PDF well logs, tying wells to 2D and 3D seismic, and building structure and isopach maps from your picks. Runs on your own machine.">
+<meta name="description" content="GeoPicks is a Mac and Windows app for picking tops on scanned PDF well logs, tying wells to 2D and 3D seismic, and building structure, isopach and volumetric maps from your picks. Runs on your own machine.">
+<link rel="canonical" href="https://getgeopicks.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#121212">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="GeoPicks">
+<meta property="og:title" content="GeoPicks: subsurface mapping from raster well logs and seismic">
+<meta property="og:description" content="Pick tops on scanned logs, tie wells to seismic, and build structure maps, volumetrics and plotted sheets on your own Mac or Windows PC. Free beta.">
+<meta property="og:url" content="https://getgeopicks.com/">
+<meta property="og:image" content="https://getgeopicks.com/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="GeoPicks wordmark over a Marker A structure map plotted to scale from the Bear Head Creek demo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GeoPicks: subsurface mapping from raster well logs and seismic">
+<meta name="twitter:description" content="Pick tops on scanned logs, tie wells to seismic, and build structure maps, volumetrics and plotted sheets on your own Mac or Windows PC. Free beta.">
+<meta name="twitter:image" content="https://getgeopicks.com/og.jpg">
 <style>
 :root{--o:#e8783c;--bg:#121212;--fg:#e8e8e8;--mut:#a0a0a0}
 *{box-sizing:border-box}body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.55}
 .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
-header{padding:22px 0;display:flex;justify-content:space-between;align-items:center}
+header{padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}
 .logo{font-weight:800;letter-spacing:.08em;font-size:22px}.logo span{color:var(--o)}
-a.btn,button{background:var(--o);color:#111;border:0;border-radius:8px;padding:12px 22px;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer}
+a.btn,button{background:var(--o);color:#111;border:0;border-radius:8px;padding:12px 22px;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer;display:inline-block}
 .hero{padding:40px 0 20px;text-align:center}.hero h1{font-size:clamp(30px,5vw,48px);margin:0 0 14px;line-height:1.15}
 .hero p{color:var(--mut);font-size:19px;max-width:720px;margin:0 auto 26px}
-.shot{margin:30px 0;border-radius:10px;width:100%;box-shadow:0 10px 40px #0008}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin:30px 0}
+.shot{margin:30px 0;border-radius:10px;width:100%;height:auto;box-shadow:0 10px 40px #0008}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin:22px 0 30px}
 .ty{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:10px;padding:24px;max-width:560px}.ty h3{margin:0 0 10px;color:var(--o)}.ty p,.ty li{color:var(--mut)}.ty .dl{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0}.err{color:#ff8a80;font-size:14px;margin:0}
 [hidden]{display:none!important}a{color:var(--o)}.card{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:10px;padding:20px}.card h3{margin:0 0 6px;color:var(--o);font-size:17px}.card p{margin:0;color:var(--mut)}
-section{padding:30px 0}h2{font-size:28px;margin:0 0 12px}
+.card .tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;color:#111;background:var(--o);border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:2px}
+section{padding:30px 0}h2{font-size:28px;margin:0 0 12px}.lede{color:var(--mut);max-width:760px;margin:0 0 6px}
+.gal{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:22px 0 8px;align-items:start}.gal .col{display:grid;gap:22px}
+.gal figure{margin:0;background:#1c1c1c;border:1px solid #2a2a2a;border-radius:10px;overflow:hidden}
+.gal a{display:block;line-height:0}.gal img{width:100%;height:auto;display:block;background:#222}
+.gal figcaption{padding:12px 16px 14px;color:var(--mut);font-size:14px}.gal figcaption b{color:var(--fg)}
+.caution{color:#e0a080;font-size:14px;max-width:760px}
 form{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:10px;padding:24px;display:grid;gap:12px;max-width:560px}
 input,select,textarea{width:100%;padding:11px;border-radius:7px;border:1px solid #333;background:#111;color:var(--fg);font-size:15px}
 label{font-size:14px;color:var(--mut)}footer{color:var(--mut);font-size:14px;padding:40px 0;border-top:1px solid #222;margin-top:40px}
+@media (max-width:760px){.gal{grid-template-columns:1fr}.hero p{font-size:17px}header a.btn{padding:10px 14px;font-size:15px}}
 </style></head><body>
 <div class="wrap">
 <header><div class="logo">GEO<span>PICKS</span></div><a class="btn" href="#beta">Join the beta</a></header>
 <div class="hero">
 <h1>Map prospects from scanned logs and seismic, on your own machine.</h1>
-<p>GeoPicks is a native Mac and Windows app for subsurface mapping. Pick tops on scanned well logs, correlate across sections, tie your wells to 2D and 3D seismic, and build structure and isopach maps from both well control and seismic horizons. Affordable for independents and consultants, with no LAS files required and no cloud upload.</p>
+<p>GeoPicks is a native Mac and Windows app for subsurface mapping. Pick tops on scanned well logs, correlate across sections, tie your wells to 2D and 3D seismic, and build structure maps, isopachs and volumetrics from both well control and seismic horizons. Affordable for independents and consultants, with no LAS files required and no cloud upload.</p>
 <a class="btn" href="#beta">Get free beta access</a>
-<img class="shot" src="screenshot.jpg" alt="GeoPicks correlation panel and basemap for a 27-well Louisiana field">
+<img class="shot" src="screenshot.jpg" width="1800" height="1017" alt="GeoPicks correlation panel and basemap for a 27-well Louisiana field">
 </div>
 <div class="grid">
 <div class="card"><h3>Raster-native logs</h3><p>Pick directly on scanned PDF well logs. There's no digitizing and no LAS files needed before you can map.</p></div>
@@ -35,12 +57,47 @@ label{font-size:14px;color:var(--mut)}footer{color:var(--mut);font-size:14px;pad
 <div class="card"><h3>Horizons that feed your maps</h3><p>Pick and auto-track horizons on 2D and 3D seismic. They're depth-converted and used alongside your well picks as structure-map control.</p></div>
 <div class="card"><h3>Maps from your picks</h3><p>GeoPicks computes structure and isopach contours from your picks and labels them as automated, so you treat them as a starting point and check them against your own interpretation.</p></div>
 <div class="card"><h3>Exports you can use</h3><p>ZMap grids, shapefiles, a PowerPoint deck, and a PDF prospect pack.</p></div>
-<div class="card"><h3>Yours, offline</h3><p>A native app on your own Mac or Windows PC. Your data never leaves your machine. The Bear Head Creek demo field, 27 wells with tops already picked, opens on first launch so you can try it right away.</p></div>
+<div class="card"><h3>Yours, offline</h3><p>A native app on your own Mac or Windows PC. Your project data stays on your machine (<a href="privacy.html">privacy</a>). The Bear Head Creek demo field, 27 wells with tops already picked, opens on first launch so you can try it right away.</p></div>
 </div>
+
+<section id="new"><h2>New in 1.6</h2>
+<p class="lede">From picks to a prospect you can defend: volumes, better grids, plotted sheets, and the cleanup work that used to happen in a spreadsheet.</p>
+<div class="grid">
+<div class="card"><h3>Volumetrics</h3><p>Find the closure and spill point on your structure map, honor sealing faults, or set your own contact. GRV, OOIP/OGIP and recoverable, always labeled as estimates from your inputs.</p></div>
+<div class="card"><h3>Grids that honor your contours</h3><p>Draw your own contours and the grid re-fits to them, with every well still honored exactly. Turn on the difference view to see where your contours and the computer's disagree.</p></div>
+<div class="card"><h3>Gridding methods</h3><p>Thin-plate spline, minimum curvature, kriging, or IDW, with cell size, buffer and smoothing set per map.</p></div>
+<div class="card"><h3>Plot to scale</h3><p>1" = N ft on letter up to 24x36, with a title block, scale bar, north arrow and State Plane grid. Ready for the plotter.</p></div>
+<div class="card"><h3>Seismic well-tie corrections</h3><p>Seismic horizons are corrected to your well tops, with a mis-tie table that flags wells over your tolerance.</p></div>
+<div class="card"><h3>Bulk KB editor</h3><p>Edit KBs in one table or import a CSV. Wells with no KB are flagged instead of quietly dropped, and left out of the contouring until you add one.</p></div>
+<div class="card"><h3>Production bubble maps</h3><p>Import monthly production from CSV and post cumulative or rate bubbles for oil, gas, water or BOE on your maps and exports.</p></div>
+<div class="card"><h3>Lease and culture layers</h3><p>Drop in shapefiles, GeoJSON or KML/KMZ for leases, roads and pipelines. Styled, labeled and carried onto PDFs and plots.</p></div>
+<div class="card"><h3>Updates itself <span class="tag">1.6.3</span></h3><p>Starting with 1.6.3, GeoPicks tells you when a new version is out. Click <b>Update now</b> and it downloads, verifies and installs the update, then reopens. Your projects and license stay put.</p></div>
+</div>
+</section>
+
+<section id="screens"><h2>Screens from the demo</h2>
+<p class="lede">Real captures from GeoPicks 1.6.3 running the Bear Head Creek demo that ships with the app.</p>
+<div class="gal">
+<div class="col">
+<figure><a href="images/structure-map.jpg"><img src="images/structure-map.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="GeoPicks Maps tab: automated Marker A structure map of the Bear Head Creek demo with posted subsea depths, dashed computer contours, wells without a KB shown as hollow circles marked no KB, the seismic line in purple, and the caution banner reading Automated structure map: computed from well picks only. Use cautiously."></a>
+<figcaption><b>Structure map from picks.</b> Automated Marker A contours with posted subsea values. Wells without a KB are flagged "no KB" and left out of the contouring.</figcaption></figure>
+<figure><a href="images/plot-to-scale-sheet.jpg"><img src="images/plot-to-scale-sheet.jpg" width="1602" height="1037" loading="lazy" decoding="async" alt="GeoPicks plot-to-scale sheet: Marker A structure map on an 11 by 17 inch page at 1 inch equals 2,000 feet, with State Plane easting and northing grid, scale bar, north arrow, legend and title block."></a>
+<figcaption><b>Plot to scale.</b> 11x17 at 1" = 2,000 ft with a Louisiana South State Plane grid, scale bar and title block.</figcaption></figure>
+</div>
+<div class="col">
+<figure><a href="images/isopach-map.jpg"><img src="images/isopach-map.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="GeoPicks Maps tab: automated Marker C to Marker A isopach map of the Bear Head Creek demo, with interval thickness in feet posted at each of the 27 wells, dashed 20-foot computer contours, and the caution banner reading Automated isopach map: computed from well picks only. Use cautiously."></a>
+<figcaption><b>Isopach from picks.</b> Marker C to Marker A thickness at all 27 demo wells, contoured every 20 ft and labeled as automated.</figcaption></figure>
+<figure><a href="images/seismic-well-ties.jpg"><img src="images/seismic-well-ties.jpg" width="1600" height="800" loading="lazy" decoding="async" alt="GeoPicks Seismic tab: a 2D seismic line in two-way time with the demo wells drawn as vertical lines and their Marker A to D tops posted at their tied times."></a>
+<figcaption><b>Wells tied to seismic.</b> Tops posted at two-way time along the line. The demo's seismic line is synthetic demo data, not acquired seismic.</figcaption></figure>
+</div>
+</div>
+<p class="caution">Computer-gridded maps and volumes are a starting point. GeoPicks labels them as automated estimates; check them against your own geologic interpretation before making decisions.</p>
+</section>
+
 <section><h2>Built by a geologist, for independents</h2>
 <p style="color:var(--mut);max-width:760px">Since finishing my PhD at Tulane, I've wanted to prospect independently, but traditional subsurface mapping software costs thousands of dollars a year in licensing. So I built GeoPicks for geologists, independents, and consultants who map from well logs and seismic. It reads data from SONRIS, the Texas RRC, IHS/Enverus, Petra and Kingdom exports. It also loads 2D and 3D SEG-Y, ties your wells to the seismic, and lets you pick horizons that feed your structure maps. <br><br>J. Kevin Reece, PhD</p></section>
 <section id="beta"><h2>Join the beta</h2>
-<p style="color:var(--mut)">Beta testers get six months free in exchange for honest feedback. It runs on Mac and Windows.</p>
+<p style="color:var(--mut)">Beta testers get 3 months free, plus 3 more after a short <a href="feedback.html">feedback form</a> (6 months total). It runs on Mac and Windows.</p>
 <form id="betaForm" action="https://formspree.io/f/xjygpvqe" method="POST">
 <label>Name<input name="name" required></label>
 <label>Email<input type="email" name="email" required></label>
@@ -49,6 +106,7 @@ label{font-size:14px;color:var(--mut)}footer{color:var(--mut);font-size:14px;pad
 <label>Where do you map, and what data do you use?<textarea name="notes" rows="3" placeholder="e.g., South Louisiana, SONRIS raster logs"></textarea></label>
 <button type="submit">Request beta access</button>
 <p class="err" id="betaErr" role="alert" hidden></p>
+<p style="font-size:13px;color:var(--mut);margin:0">Your answers are emailed to me through Formspree. See <a href="privacy.html">privacy</a>.</p>
 </form>
 <div class="ty" id="betaThanks" tabindex="-1" hidden>
 <h3>Thanks, you're in.</h3>
@@ -62,7 +120,8 @@ label{font-size:14px;color:var(--mut)}footer{color:var(--mut);font-size:14px;pad
 <li><b>Windows:</b> run the installer. If SmartScreen appears, click More info, then Run anyway.</li>
 </ul>
 <p>The beta isn't code-signed yet, which is why you'll see those warnings. Full install notes are on the <a href="https://github.com/reecejk/geopicks-beta#readme">download page</a>.</p>
-<p>GeoPicks needs a license key to run. I sign each key myself, so your free 6-month beta key will come by email from me within 1 business day.</p>
+<p>You only install once. From 1.6.3 on, GeoPicks offers new versions itself: click <b>Update now</b> in the app. On a Mac, keep GeoPicks in your Applications folder so it can update in place.</p>
+<p>GeoPicks needs a license key to run. I sign each key myself, so your free 3-month beta key will come by email from me within 1 business day.</p>
 <p>Questions or feedback: <a href="mailto:geopicks.software@gmail.com">geopicks.software@gmail.com</a></p>
 </div>
 <script>
@@ -85,5 +144,5 @@ label{font-size:14px;color:var(--mut)}footer{color:var(--mut);font-size:14px;pad
 })();
 </script>
 </section>
-<footer>© 2026 GeoPicks · J. Kevin Reece · <a href="mailto:geopicks.software@gmail.com">geopicks.software@gmail.com</a></footer>
+<footer>© 2026 GeoPicks · J. Kevin Reece · <a href="mailto:geopicks.software@gmail.com">geopicks.software@gmail.com</a> · <a href="feedback.html">Beta feedback</a> · <a href="privacy.html">Privacy</a></footer>
 </div></body></html>

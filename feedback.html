@@ -1,0 +1,140 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Beta feedback · GeoPicks</title>
+<meta name="description" content="GeoPicks beta feedback form. Send a few minutes of honest feedback and get 3 more months of your beta key.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://getgeopicks.com/feedback.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#121212">
+<meta property="og:type" content="website"><meta property="og:site_name" content="GeoPicks">
+<meta property="og:title" content="GeoPicks beta feedback"><meta property="og:description" content="A few minutes of honest feedback earns 3 more months of your GeoPicks beta key.">
+<meta property="og:url" content="https://getgeopicks.com/feedback.html"><meta property="og:image" content="https://getgeopicks.com/og.jpg">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://getgeopicks.com/og.jpg">
+<style>
+:root{--o:#e8783c;--bg:#121212;--fg:#e8e8e8;--mut:#a0a0a0}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.55}
+.wrap{max-width:780px;margin:0 auto;padding:0 22px}
+header{padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.logo{font-weight:800;letter-spacing:.08em;font-size:22px;color:var(--fg);text-decoration:none}.logo span{color:var(--o)}
+a{color:var(--o)}h1{font-size:clamp(28px,5vw,40px);margin:20px 0 8px;line-height:1.2}.lede{color:var(--mut);margin:0 0 22px}
+a.btn,button{background:var(--o);color:#111;border:0;border-radius:8px;padding:12px 22px;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer}
+button:disabled{opacity:.6;cursor:default}
+form{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:10px;padding:24px;display:grid;gap:18px}
+input[type=text],input[type=email],select,textarea{width:100%;padding:11px;border-radius:7px;border:1px solid #333;background:#111;color:var(--fg);font-size:15px;font-family:inherit}
+label,legend{font-size:14px;color:var(--mut)}.req{color:var(--o)}
+fieldset{border:0;margin:0;padding:0;min-width:0}legend{padding:0;margin-bottom:8px}
+.hint{font-size:13px;color:#8a8a8a;margin:4px 0 0}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts label{display:flex;align-items:center;gap:7px;background:#141414;border:1px solid #2e2e2e;border-radius:7px;padding:8px 11px;color:var(--fg);cursor:pointer;font-size:14px}
+.opts input{accent-color:var(--o);margin:0}
+.checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+.rate{display:grid;grid-template-columns:minmax(130px,1fr) auto;gap:8px 14px;align-items:center}
+.rate .name{color:var(--fg);font-size:15px}.rate .opts label{padding:7px 12px;min-width:44px;justify-content:center}
+.scale{font-size:12px;color:#8a8a8a;margin:0 0 6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.err{color:#ff8a80;font-size:14px;margin:0}[hidden]{display:none!important}
+.ty{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:10px;padding:24px}.ty h3{margin:0 0 10px;color:var(--o)}.ty p{color:var(--mut)}
+footer{color:var(--mut);font-size:14px;padding:40px 0;border-top:1px solid #222;margin-top:40px}
+@media (max-width:640px){.checks{grid-template-columns:1fr 1fr}.checks label{font-size:13px;padding:8px}.two{grid-template-columns:1fr}.rate{grid-template-columns:1fr}.rate .name{margin-top:6px}form{padding:18px}}
+</style></head><body><div class="wrap">
+<header><a class="logo" href="./">GEO<span>PICKS</span></a><a href="./#beta">Join the beta</a></header>
+<h1>Beta feedback</h1>
+<p class="lede">Your beta key covers 3 months. Fill this out and I'll send you a key for 3 more (6 months total). Honest beats polite: the confusing parts help me most. Fields marked <span class="req">*</span> are required.</p>
+
+<form id="fbForm" action="https://formspree.io/f/xjygpvqe" method="POST" novalidate>
+<input type="hidden" name="form_type" value="beta-feedback">
+<input type="hidden" name="_subject" value="GeoPicks beta feedback">
+
+<div class="two">
+<label>Name <span class="req">*</span><input type="text" name="name" autocomplete="name" required></label>
+<label>Email <span class="req">*</span><input type="email" name="email" autocomplete="email" required>
+<span class="hint">Use the address your beta key was sent to, so I can match your key.</span></label>
+</div>
+
+<fieldset><legend>Computer <span class="req">*</span></legend>
+<div class="opts"><label><input type="radio" name="platform" value="Mac" required>Mac</label><label><input type="radio" name="platform" value="Windows">Windows</label><label><input type="radio" name="platform" value="Both">Both</label></div></fieldset>
+
+<fieldset><legend>How much have you used it? <span class="req">*</span></legend>
+<div class="opts"><label><input type="radio" name="usage" value="Tried it once" required>Tried it once</label><label><input type="radio" name="usage" value="A few sessions">A few sessions</label><label><input type="radio" name="usage" value="Weekly">Weekly</label><label><input type="radio" name="usage" value="On a real prospect">On a real prospect</label></div></fieldset>
+
+<fieldset><legend>What did you try?</legend>
+<div class="opts checks">
+<label><input type="checkbox" name="tried" value="Raster log picking">Raster log picking</label>
+<label><input type="checkbox" name="tried" value="Correlation / cross sections">Correlation / cross sections</label>
+<label><input type="checkbox" name="tried" value="Seismic loading">Seismic loading</label>
+<label><input type="checkbox" name="tried" value="Well ties">Well ties</label>
+<label><input type="checkbox" name="tried" value="Horizon picking">Horizon picking</label>
+<label><input type="checkbox" name="tried" value="Structure / isopach maps">Structure / isopach maps</label>
+<label><input type="checkbox" name="tried" value="Contour re-fit">Contour re-fit</label>
+<label><input type="checkbox" name="tried" value="Volumetrics">Volumetrics</label>
+<label><input type="checkbox" name="tried" value="Plot to scale">Plot to scale</label>
+<label><input type="checkbox" name="tried" value="Exports">Exports</label>
+<label><input type="checkbox" name="tried" value="KB editor">KB editor</label>
+<label><input type="checkbox" name="tried" value="Production bubbles">Production bubbles</label>
+<label><input type="checkbox" name="tried" value="Lease layers">Lease layers</label>
+<label><input type="checkbox" name="tried" value="Other">Other</label>
+</div></fieldset>
+
+<fieldset><legend>Ratings <span class="req">*</span></legend>
+<p class="scale">1 = poor, 5 = excellent</p>
+<div class="rate">
+<span class="name" id="r1">Ease of use</span><div class="opts" role="radiogroup" aria-labelledby="r1"><label><input type="radio" name="rating_ease" value="1" required>1</label><label><input type="radio" name="rating_ease" value="2">2</label><label><input type="radio" name="rating_ease" value="3">3</label><label><input type="radio" name="rating_ease" value="4">4</label><label><input type="radio" name="rating_ease" value="5">5</label></div>
+<span class="name" id="r2">Map quality</span><div class="opts" role="radiogroup" aria-labelledby="r2"><label><input type="radio" name="rating_maps" value="1" required>1</label><label><input type="radio" name="rating_maps" value="2">2</label><label><input type="radio" name="rating_maps" value="3">3</label><label><input type="radio" name="rating_maps" value="4">4</label><label><input type="radio" name="rating_maps" value="5">5</label></div>
+<span class="name" id="r3">Speed / stability</span><div class="opts" role="radiogroup" aria-labelledby="r3"><label><input type="radio" name="rating_speed" value="1" required>1</label><label><input type="radio" name="rating_speed" value="2">2</label><label><input type="radio" name="rating_speed" value="3">3</label><label><input type="radio" name="rating_speed" value="4">4</label><label><input type="radio" name="rating_speed" value="5">5</label></div>
+<span class="name" id="r4">Overall value</span><div class="opts" role="radiogroup" aria-labelledby="r4"><label><input type="radio" name="rating_value" value="1" required>1</label><label><input type="radio" name="rating_value" value="2">2</label><label><input type="radio" name="rating_value" value="3">3</label><label><input type="radio" name="rating_value" value="4">4</label><label><input type="radio" name="rating_value" value="5">5</label></div>
+</div></fieldset>
+
+<label>What worked best? <span class="req">*</span><textarea name="worked_best" rows="3" required></textarea></label>
+<label>Bugs, or anything confusing? <span class="req">*</span><textarea name="bugs_confusing" rows="4" required placeholder="What you did, what you expected, what happened. &quot;Nothing&quot; is a fine answer."></textarea></label>
+<label>The one missing feature you want most <span class="req">*</span><textarea name="most_wanted" rows="3" required></textarea></label>
+<label>Data sources and basins you map in<textarea name="data_basins" rows="2" placeholder="e.g., SONRIS raster logs, South Louisiana Miocene"></textarea></label>
+
+<fieldset><legend>What would you pay per year for GeoPicks?</legend>
+<div class="opts"><label><input type="radio" name="would_pay" value="Under $1k">Under $1k</label><label><input type="radio" name="would_pay" value="$1-3k">$1-3k</label><label><input type="radio" name="would_pay" value="$3-5k">$3-5k</label><label><input type="radio" name="would_pay" value="$5-10k">$5-10k</label><label><input type="radio" name="would_pay" value="Wouldn't pay yet">Wouldn't pay yet</label></div></fieldset>
+
+<fieldset><legend>May I quote you on the website?</legend>
+<div class="opts"><label><input type="radio" name="quote_ok" value="Yes, with my name">Yes, with my name</label><label><input type="radio" name="quote_ok" value="Yes, anonymously">Yes, anonymously</label><label><input type="radio" name="quote_ok" value="No">No</label></div></fieldset>
+
+<label>Anything else?<textarea name="anything_else" rows="3"></textarea></label>
+
+<button type="submit">Send feedback</button>
+<p class="err" id="fbErr" role="alert" hidden></p>
+<p class="hint" style="margin:0">Your answers are emailed to me through Formspree. See <a href="privacy.html">privacy</a>.</p>
+</form>
+
+<div class="ty" id="fbThanks" tabindex="-1" hidden>
+<h3>Thanks! Your additional 3-month key will arrive by email within 1 business day.</h3>
+<p>Questions in the meantime: <a href="mailto:geopicks.software@gmail.com">geopicks.software@gmail.com</a></p>
+</div>
+
+<script>
+(function(){
+  var f=document.getElementById('fbForm'); if(!f) return;
+  var qs=new URLSearchParams(location.search);
+  ['name','email'].forEach(function(k){ var v=qs.get(k); if(v && f.elements[k]) f.elements[k].value=v.slice(0,200); });
+  var ty=document.getElementById('fbThanks'), err=document.getElementById('fbErr'), btn=f.querySelector('button[type=submit]');
+  var mail='<a href="mailto:geopicks.software@gmail.com">geopicks.software@gmail.com</a>';
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); err.hidden=true;
+    if(!f.checkValidity()){
+      var bad=f.querySelector(':invalid');
+      err.textContent='Please fill in the required fields (marked *).'; err.hidden=false;
+      if(bad){ bad.focus(); if(bad.reportValidity) bad.reportValidity(); }
+      return;
+    }
+    if(!window.fetch){ f.submit(); return; }
+    var data={}, fd=new FormData(f);
+    fd.forEach(function(v,k){ if(k==='tried') return; data[k]=typeof v==='string'?v.trim():v; });
+    data.tried=fd.getAll('tried').join(', ');
+    btn.disabled=true; btn.textContent='Sending...';
+    fetch(f.action,{method:'POST',body:JSON.stringify(data),headers:{'Content-Type':'application/json','Accept':'application/json'}})
+      .then(function(r){ if(!r.ok) throw new Error('status '+r.status);
+        f.hidden=true; ty.hidden=false; ty.focus(); window.scrollTo(0,0); })
+      .catch(function(){
+        btn.disabled=false; btn.textContent='Send feedback';
+        err.innerHTML='Sorry, that didn\'t go through. Please try again, or email your feedback to '+mail+'.';
+        err.hidden=false; });
+  });
+})();
+</script>
+<footer>© 2026 GeoPicks · J. Kevin Reece · <a href="mailto:geopicks.software@gmail.com">geopicks.software@gmail.com</a> · <a href="./">Home</a> · <a href="privacy.html">Privacy</a></footer>
+</div></body></html>
