@@ -45,7 +45,7 @@ label{font-size:14px;color:var(--mut)}footer{color:var(--mut);font-size:14px;pad
 <header><div class="logo">GEO<span>PICKS</span></div><a class="btn" href="#beta">Join the beta</a></header>
 <div class="hero">
 <h1>Map prospects from scanned logs and seismic, on your own machine.</h1>
-<p>GeoPicks is a native Mac and Windows app for subsurface mapping. Pick tops on scanned well logs, correlate across sections, tie your wells to 2D and 3D seismic, and build structure maps, isopachs and volumetrics from both well control and seismic horizons. Affordable for independents and consultants, with no LAS files required and no cloud upload.</p>
+<p>GeoPicks is a native Mac and Windows app for subsurface mapping. Pick tops on scanned well logs, correlate across sections, tie your wells to 2D and 3D seismic, and build structure maps, isopachs, volumetrics and seismic attribute maps from both well control and seismic horizons. Affordable for independents and consultants, with no LAS files required and no cloud upload.</p>
 <a class="btn" href="#beta">Get free beta access</a>
 <img class="shot" src="screenshot.jpg" width="1800" height="1017" alt="GeoPicks correlation panel and basemap for a 27-well Louisiana field">
 </div>
@@ -59,6 +59,17 @@ label{font-size:14px;color:var(--mut)}footer{color:var(--mut);font-size:14px;pad
 <div class="card"><h3>Exports you can use</h3><p>ZMap grids, shapefiles, a PowerPoint deck, and a PDF prospect pack.</p></div>
 <div class="card"><h3>Yours, offline</h3><p>A native app on your own Mac or Windows PC. Your project data stays on your machine (<a href="privacy.html">privacy</a>). The Bear Head Creek demo field, 27 wells with tops already picked, opens on first launch so you can try it right away.</p></div>
 </div>
+
+<section id="new17"><h2>New in 1.7</h2>
+<p class="lede">More out of your seismic, and depths you can trace back to your wells.</p>
+<div class="grid">
+<div class="card"><h3>Seismic attributes</h3><p>Envelope, instantaneous phase and frequency, cosine of phase, and sweetness on 2D lines and 3D sections. 3D attribute volumes are computed once and cached for time slices.</p></div>
+<div class="card"><h3>Horizon amplitude maps</h3><p>Amplitude at a horizon, RMS, mean absolute, maximum, minimum, or sum of positive amplitudes, in a window around one horizon or between two. Export PNG, ZMap or CSV, or add the map to the prospect pack.</p></div>
+<div class="card"><h3>Dip and azimuth maps</h3><p>Dip and down-dip azimuth computed from your structure grid, from wells, seismic or both.</p></div>
+<div class="card"><h3>Velocity model from your ties</h3><p>A layered model fitted to your well ties, constant velocity or V0 + kZ per layer. Check the residuals in a table and on a map, then view depth sections. Depths are labeled as estimates.</p></div>
+<div class="card"><h3>Fully offline display</h3><p>Fonts and the map library now ship with the app. Besides the daily update check, only the optional street basemap, USGS elevation lookup and township/range grid use the network (<a href="privacy.html">details</a>).</p></div>
+</div>
+</section>
 
 <section id="new"><h2>New in 1.6</h2>
 <p class="lede">From picks to a prospect you can defend: volumes, better grids, plotted sheets, and the cleanup work that used to happen in a spreadsheet.</p>
@@ -76,22 +87,24 @@ label{font-size:14px;color:var(--mut)}footer{color:var(--mut);font-size:14px;pad
 </section>
 
 <section id="screens"><h2>Screens from the demo</h2>
-<p class="lede">Real captures from GeoPicks 1.6.3 running the Bear Head Creek demo that ships with the app.</p>
+<p class="lede">Real captures from GeoPicks 1.6.3 and 1.7 running the Bear Head Creek demo exactly as it ships with the app.</p>
 <div class="gal">
 <div class="col">
 <figure><a href="images/structure-map.jpg"><img src="images/structure-map.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="GeoPicks Maps tab: automated Marker A structure map of the Bear Head Creek demo with posted subsea depths, dashed computer contours, wells without a KB shown as hollow circles marked no KB, the seismic line in purple, and the caution banner reading Automated structure map: computed from well picks only. Use cautiously."></a>
 <figcaption><b>Structure map from picks.</b> Automated Marker A contours with posted subsea values. Wells without a KB are flagged "no KB" and left out of the contouring.</figcaption></figure>
-<figure><a href="images/plot-to-scale-sheet.jpg"><img src="images/plot-to-scale-sheet.jpg" width="1602" height="1037" loading="lazy" decoding="async" alt="GeoPicks plot-to-scale sheet: Marker A structure map on an 11 by 17 inch page at 1 inch equals 2,000 feet, with State Plane easting and northing grid, scale bar, north arrow, legend and title block."></a>
-<figcaption><b>Plot to scale.</b> 11x17 at 1" = 2,000 ft with a Louisiana South State Plane grid, scale bar and title block.</figcaption></figure>
+<figure><a href="images/plot-to-scale-sheet-v170.jpg"><img src="images/plot-to-scale-sheet-v170.jpg" width="1602" height="1037" loading="lazy" decoding="async" alt="GeoPicks plot-to-scale sheet: Marker A structure map on an 11 by 17 inch page at 1 inch equals 2,000 feet, with State Plane easting and northing grid, scale bar, north arrow, legend and title block."></a>
+<figcaption><b>Plot to scale (1.7).</b> 11x17 at 1" = 2,000 ft with a Louisiana South State Plane grid, scale bar and title block.</figcaption></figure>
+<figure><a href="images/seismic-well-ties.jpg"><img src="images/seismic-well-ties.jpg" width="1600" height="800" loading="lazy" decoding="async" alt="GeoPicks Seismic tab: a 2D seismic line in two-way time with the demo wells drawn as vertical lines and their Marker A to D tops posted at their tied times."></a>
+<figcaption><b>Wells tied to seismic.</b> Tops posted at two-way time along the line. The demo's seismic line is synthetic demo data, not acquired seismic.</figcaption></figure>
 </div>
 <div class="col">
 <figure><a href="images/isopach-map.jpg"><img src="images/isopach-map.jpg" width="1600" height="1000" loading="lazy" decoding="async" alt="GeoPicks Maps tab: automated Marker C to Marker A isopach map of the Bear Head Creek demo, with interval thickness in feet posted at each of the 27 wells, dashed 20-foot computer contours, and the caution banner reading Automated isopach map: computed from well picks only. Use cautiously."></a>
 <figcaption><b>Isopach from picks.</b> Marker C to Marker A thickness at all 27 demo wells, contoured every 20 ft and labeled as automated.</figcaption></figure>
-<figure><a href="images/seismic-well-ties.jpg"><img src="images/seismic-well-ties.jpg" width="1600" height="800" loading="lazy" decoding="async" alt="GeoPicks Seismic tab: a 2D seismic line in two-way time with the demo wells drawn as vertical lines and their Marker A to D tops posted at their tied times."></a>
-<figcaption><b>Wells tied to seismic.</b> Tops posted at two-way time along the line. The demo's seismic line is synthetic demo data, not acquired seismic.</figcaption></figure>
+<figure><a href="images/dip-map.jpg"><img src="images/dip-map.jpg" width="1204" height="966" loading="lazy" decoding="async" alt="GeoPicks 1.7 dip map of Marker A for the Bear Head Creek demo: dip in degrees shaded from pale yellow to dark brown, computed from the structure grid, with Marker A structure contours, posted subsea depths, wells without a KB shown as hollow circles marked no KB, and the note that dip is computed from the computer-gridded structure map."></a>
+<figcaption><b>Dip map (1.7).</b> Dip of Marker A from the structure grid of the 10 wells with a KB, with the structure contours on top. A first pass, labeled as computed from the automated map.</figcaption></figure>
 </div>
 </div>
-<p class="caution">Computer-gridded maps and volumes are a starting point. GeoPicks labels them as automated estimates; check them against your own geologic interpretation before making decisions.</p>
+<p class="caution">Computer-gridded maps, volumes and depth conversions are a starting point. GeoPicks labels them as automated estimates; check them against your own geologic interpretation before making decisions.</p>
 </section>
 
 <section><h2>Built by a geologist, for independents</h2>

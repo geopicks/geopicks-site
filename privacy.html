@@ -20,7 +20,7 @@ footer{color:var(--mut);font-size:14px;padding:40px 0;border-top:1px solid #222;
 </style></head><body><div class="wrap">
 <header><a class="logo" href="./">GEO<span>PICKS</span></a><a href="./#beta">Join the beta</a></header>
 <h1>Privacy</h1>
-<p class="mut">Last updated October 2026.</p>
+<p class="mut">Last updated October 2026 (GeoPicks 1.7.0).</p>
 
 <h2>The app runs on your machine</h2>
 <p>GeoPicks is a desktop app. Its engine runs on your own Mac or Windows PC and only accepts connections from that computer. Your projects (logs, picks, maps, seismic, grids) and your license key are stored in your own user folder (<code>~/Library/Application Support/GeoPicks</code> on a Mac, <code>%APPDATA%\GeoPicks</code> on Windows) and are never uploaded. License keys are checked on your computer; there is no activation server. The app has no analytics, telemetry or crash reporting.</p>
@@ -32,7 +32,8 @@ footer{color:var(--mut);font-size:14px;padding:40px 0;border-top:1px solid #222;
 <li><b>Elevation lookup (USGS), only when you click it.</b> The KB editor's ground-level lookup sends the latitude and longitude of the wells you're looking up to the USGS elevation service.</li>
 <li><b>Township/range/section grid (BLM), only when you turn it on.</b> The T-R-S overlay sends the bounding box around your located wells to the BLM land-survey (PLSS) service. The result is saved with the project, so it isn't fetched again.</li>
 <li><b>Street basemap (OpenStreetMap), only when you choose it.</b> The <i>Streets</i> background loads map tiles from OpenStreetMap, which reveals the area of the map you're viewing. The default <i>Plain</i> background loads nothing.</li>
-<li><b>Fonts and map library.</b> In the current version (GeoPicks 1.6.3), the app window loads its typefaces from Google Fonts, and opening a project loads the Leaflet map library from unpkg.com. These are ordinary web requests (your IP address); no project data goes with them.</li>
+<li><b>Fonts and map library.</b> Since GeoPicks 1.7.0, the app's typefaces and the Leaflet map library are bundled with the app and are no longer fetched from the internet. (Version 1.6.3 and earlier load the typefaces from Google Fonts and Leaflet from unpkg.com: ordinary web requests with your IP address and no project data.)</li>
+<li><b>Beta feedback button.</b> Near the end of a beta key, GeoPicks shows a <i>Share feedback</i> button. Clicking it opens the feedback page on this website in your browser, with the name and email from your license filled in.</li>
 </ul>
 <p>Links you click (release notes, the download page, email) open in your web browser.</p>
 
