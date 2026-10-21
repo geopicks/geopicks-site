@@ -38,7 +38,7 @@ section{padding:30px 0}h2{font-size:28px;margin:0 0 12px}.lede{color:var(--mut);
 .caution{color:#e0a080;font-size:14px;max-width:760px}
 form{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:10px;padding:24px;display:grid;gap:12px;max-width:560px}
 input,select,textarea{width:100%;padding:11px;border-radius:7px;border:1px solid #333;background:#111;color:var(--fg);font-size:15px}
-label{font-size:14px;color:var(--mut)}footer{color:var(--mut);font-size:14px;padding:40px 0;border-top:1px solid #222;margin-top:40px}
+label{font-size:14px;color:var(--mut)}.hint{display:block;font-size:13px;color:#8a8a8a;margin:4px 0 0}.ty ol{color:var(--mut);padding-left:22px}.ty ol li{margin:4px 0}.ty code{color:var(--fg);font-size:14px}footer{color:var(--mut);font-size:14px;padding:40px 0;border-top:1px solid #222;margin-top:40px}
 @media (max-width:760px){.gal{grid-template-columns:1fr}.hero p{font-size:17px}header a.btn{padding:10px 14px;font-size:15px}}
 </style></head><body>
 <div class="wrap">
@@ -110,12 +110,14 @@ label{font-size:14px;color:var(--mut)}footer{color:var(--mut);font-size:14px;pad
 <section><h2>Built by a geologist, for independents</h2>
 <p style="color:var(--mut);max-width:760px">Since finishing my PhD at Tulane, I've wanted to prospect independently, but traditional subsurface mapping software costs thousands of dollars a year in licensing. So I built GeoPicks for geologists, independents, and consultants who map from well logs and seismic. It reads data from SONRIS, the Texas RRC, IHS/Enverus, Petra and Kingdom exports. It also loads 2D and 3D SEG-Y, ties your wells to the seismic, and lets you pick horizons that feed your structure maps. <br><br>J. Kevin Reece, PhD</p></section>
 <section id="beta"><h2>Join the beta</h2>
-<p style="color:var(--mut)">Beta testers get 3 months free, plus 3 more after a short <a href="feedback.html">feedback form</a> (6 months total). It runs on Mac and Windows.</p>
+<p style="color:var(--mut)">Beta testers get 3 months free, plus 3 more after a short <a href="feedback.html">feedback form</a> (6 months total). It runs on Mac and Windows. Each beta key works on one computer.</p>
 <form id="betaForm" action="https://formspree.io/f/xjygpvqe" method="POST">
 <label>Name<input name="name" required></label>
 <label>Email<input type="email" name="email" required></label>
 <label>Company (optional)<input name="company"></label>
 <label>Computer<select name="platform"><option>Windows</option><option>Mac</option><option>Both</option></select></label>
+<label>Machine ID (optional)<input name="machine_id" id="betaMachine" placeholder="GPM-XXXX-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="40" pattern="\s*([Gg][Pp][Mm])?[\s\-]*[A-Za-z0-9]{4}[\s\-]*[A-Za-z0-9]{4}[\s\-]*[A-Za-z0-9]{4}\s*" title="Format: GPM-XXXX-XXXX-XXXX" aria-describedby="betaMachineHint">
+<span class="hint" id="betaMachineHint">Your beta key works on one computer. After installing, open GeoPicks and copy the Machine ID from the Activate screen. Paste it here if you already have it, or reply to our email with it.</span></label>
 <label>Where do you map, and what data do you use?<textarea name="notes" rows="3" placeholder="e.g., South Louisiana, SONRIS raster logs"></textarea></label>
 <button type="submit">Request beta access</button>
 <p class="err" id="betaErr" role="alert" hidden></p>
@@ -134,20 +136,37 @@ label{font-size:14px;color:var(--mut)}footer{color:var(--mut);font-size:14px;pad
 </ul>
 <p>The beta isn't code-signed yet, which is why you'll see those warnings. Full install notes are on the <a href="https://github.com/reecejk/geopicks-beta#readme">download page</a>.</p>
 <p>You only install once. From 1.6.3 on, GeoPicks offers new versions itself: click <b>Update now</b> in the app. On a Mac, keep GeoPicks in your Applications folder so it can update in place.</p>
-<p>GeoPicks needs a license key to run. I sign each key myself, so your free 3-month beta key will come by email from me within 1 business day.</p>
+<p>GeoPicks needs a license key to run. I sign each key myself, and each beta key works on one computer. To get yours:</p>
+<ol id="keySteps">
+<li>Install GeoPicks with the download above.</li>
+<li>Open GeoPicks. It opens on the Activate screen.</li>
+<li>Click <b>Copy</b> next to your Machine ID (it looks like <code>GPM-XXXX-XXXX-XXXX</code>).</li>
+<li>Reply to my beta key email with it, or email it to <a href="mailto:geopicks.software@gmail.com">geopicks.software@gmail.com</a>.</li>
+</ol>
+<p id="haveMachine" hidden>You already sent a Machine ID (<code id="sentMachine"></code>), so your free 3-month beta key will be issued for that computer and will come by email from me within 1 business day. If you install on a different computer, send me that computer's Machine ID instead.</p>
+<p id="needMachine">Your free 3-month beta key will come by email from me within 1 business day of getting your Machine ID.</p>
 <p>Questions or feedback: <a href="mailto:geopicks.software@gmail.com">geopicks.software@gmail.com</a></p>
 </div>
 <script>
 (function(){
   var f=document.getElementById('betaForm'); if(!f||!window.fetch||!window.FormData) return;
   var ty=document.getElementById('betaThanks'), err=document.getElementById('betaErr'), btn=f.querySelector('button[type=submit]');
+  // Machine ID is optional: '' stays '', anything else is trimmed, uppercased and grouped GPM-XXXX-XXXX-XXXX (null = malformed).
+  function normMid(v){ v=(v||'').trim(); if(!v) return ''; var m=v.match(/^\s*(?:GPM)?[\s-]*([A-Z0-9]{4})[\s-]*([A-Z0-9]{4})[\s-]*([A-Z0-9]{4})\s*$/i); return m?('GPM-'+m[1]+'-'+m[2]+'-'+m[3]).toUpperCase():null; }
+  f.elements.machine_id.addEventListener('blur',function(){ var n=normMid(this.value); if(n) this.value=n; });
   f.addEventListener('submit',function(e){
-    e.preventDefault(); err.hidden=true; btn.disabled=true; btn.textContent='Sending...';
+    e.preventDefault(); err.hidden=true;
+    var mid=normMid(f.elements.machine_id.value);
+    if(mid===null){ err.textContent='That Machine ID doesn\'t look right. It should look like GPM-XXXX-XXXX-XXXX. You can also leave it blank and send it later.'; err.hidden=false; f.elements.machine_id.focus(); return; }
+    f.elements.machine_id.value=mid;
+    btn.disabled=true; btn.textContent='Sending...';
     var plat=(f.elements.platform.value||'').toLowerCase();
     fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
       .then(function(r){ if(!r.ok) throw new Error('status '+r.status);
         document.getElementById('dlMac').hidden=(plat==='windows');
         document.getElementById('dlWin').hidden=(plat==='mac');
+        document.getElementById('haveMachine').hidden=!mid; document.getElementById('needMachine').hidden=!!mid;
+        if(mid) document.getElementById('sentMachine').textContent=mid;
         f.hidden=true; ty.hidden=false; ty.focus(); })
       .catch(function(){
         btn.disabled=false; btn.textContent='Request beta access';

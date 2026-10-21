@@ -22,7 +22,7 @@ form{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:10px;padding:24px
 input[type=text],input[type=email],select,textarea{width:100%;padding:11px;border-radius:7px;border:1px solid #333;background:#111;color:var(--fg);font-size:15px;font-family:inherit}
 label,legend{font-size:14px;color:var(--mut)}.req{color:var(--o)}
 fieldset{border:0;margin:0;padding:0;min-width:0}legend{padding:0;margin-bottom:8px}
-.hint{font-size:13px;color:#8a8a8a;margin:4px 0 0}
+.hint{display:block;font-size:13px;color:#8a8a8a;margin:4px 0 0}
 .opts{display:flex;flex-wrap:wrap;gap:8px}
 .opts label{display:flex;align-items:center;gap:7px;background:#141414;border:1px solid #2e2e2e;border-radius:7px;padding:8px 11px;color:var(--fg);cursor:pointer;font-size:14px}
 .opts input{accent-color:var(--o);margin:0}
@@ -49,6 +49,9 @@ footer{color:var(--mut);font-size:14px;padding:40px 0;border-top:1px solid #222;
 <label>Email <span class="req">*</span><input type="email" name="email" autocomplete="email" required>
 <span class="hint">Use the address your beta key was sent to, so I can match your key.</span></label>
 </div>
+
+<label>Machine ID <span class="req">*</span><input type="text" name="machine_id" id="fbMachine" placeholder="GPM-XXXX-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="40" required pattern="\s*([Gg][Pp][Mm])?[\s\-]*[A-Za-z0-9]{4}[\s\-]*[A-Za-z0-9]{4}[\s\-]*[A-Za-z0-9]{4}\s*" title="Format: GPM-XXXX-XXXX-XXXX" aria-describedby="fbMachineHint">
+<span class="hint" id="fbMachineHint">Shown on the Activate screen in GeoPicks. Your 3-month extension key will be issued for this computer.</span></label>
 
 <fieldset><legend>Computer <span class="req">*</span></legend>
 <div class="opts"><label><input type="radio" name="platform" value="Mac" required>Mac</label><label><input type="radio" name="platform" value="Windows">Windows</label><label><input type="radio" name="platform" value="Both">Both</label></div></fieldset>
@@ -103,6 +106,7 @@ footer{color:var(--mut);font-size:14px;padding:40px 0;border-top:1px solid #222;
 
 <div class="ty" id="fbThanks" tabindex="-1" hidden>
 <h3>Thanks! Your additional 3-month key will arrive by email within 1 business day.</h3>
+<p id="fbKeyFor" hidden>It will be issued for Machine ID <b id="fbKeyMid"></b>.</p>
 <p>Questions in the meantime: <a href="mailto:geopicks.software@gmail.com">geopicks.software@gmail.com</a></p>
 </div>
 
@@ -110,14 +114,19 @@ footer{color:var(--mut);font-size:14px;padding:40px 0;border-top:1px solid #222;
 (function(){
   var f=document.getElementById('fbForm'); if(!f) return;
   var qs=new URLSearchParams(location.search);
+  // Trim, uppercase and group as GPM-XXXX-XXXX-XXXX; returns the trimmed input unchanged if it doesn't fit the format.
+  function normMid(v){ v=(v||'').trim(); var m=v.match(/^\s*(?:GPM)?[\s-]*([A-Z0-9]{4})[\s-]*([A-Z0-9]{4})[\s-]*([A-Z0-9]{4})\s*$/i); return m?('GPM-'+m[1]+'-'+m[2]+'-'+m[3]).toUpperCase():v; }
   ['name','email'].forEach(function(k){ var v=qs.get(k); if(v && f.elements[k]) f.elements[k].value=v.slice(0,200); });
+  var mq=qs.get('machine'); if(mq) f.elements.machine_id.value=normMid(mq.slice(0,40));
+  f.elements.machine_id.addEventListener('blur',function(){ this.value=normMid(this.value); });
   var ty=document.getElementById('fbThanks'), err=document.getElementById('fbErr'), btn=f.querySelector('button[type=submit]');
   var mail='<a href="mailto:geopicks.software@gmail.com">geopicks.software@gmail.com</a>';
   f.addEventListener('submit',function(e){
     e.preventDefault(); err.hidden=true;
+    f.elements.machine_id.value=normMid(f.elements.machine_id.value);
     if(!f.checkValidity()){
       var bad=f.querySelector(':invalid');
-      err.textContent='Please fill in the required fields (marked *).'; err.hidden=false;
+      err.textContent=(bad && bad.name==='machine_id' && bad.value) ? 'That Machine ID doesn\'t look right. Copy it from the Activate screen in GeoPicks; it looks like GPM-XXXX-XXXX-XXXX.' : 'Please fill in the required fields (marked *).'; err.hidden=false;
       if(bad){ bad.focus(); if(bad.reportValidity) bad.reportValidity(); }
       return;
     }
@@ -128,6 +137,7 @@ footer{color:var(--mut);font-size:14px;padding:40px 0;border-top:1px solid #222;
     btn.disabled=true; btn.textContent='Sending...';
     fetch(f.action,{method:'POST',body:JSON.stringify(data),headers:{'Content-Type':'application/json','Accept':'application/json'}})
       .then(function(r){ if(!r.ok) throw new Error('status '+r.status);
+        document.getElementById('fbKeyMid').textContent=data.machine_id||''; document.getElementById('fbKeyFor').hidden=!data.machine_id;
         f.hidden=true; ty.hidden=false; ty.focus(); window.scrollTo(0,0); })
       .catch(function(){
         btn.disabled=false; btn.textContent='Send feedback';

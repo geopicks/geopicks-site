@@ -20,10 +20,11 @@ footer{color:var(--mut);font-size:14px;padding:40px 0;border-top:1px solid #222;
 </style></head><body><div class="wrap">
 <header><a class="logo" href="./">GEO<span>PICKS</span></a><a href="./#beta">Join the beta</a></header>
 <h1>Privacy</h1>
-<p class="mut">Last updated October 2026 (GeoPicks 1.7.0).</p>
+<p class="mut">Last updated October 2026 (GeoPicks 1.7.1).</p>
 
 <h2>The app runs on your machine</h2>
 <p>GeoPicks is a desktop app. Its engine runs on your own Mac or Windows PC and only accepts connections from that computer. Your projects (logs, picks, maps, seismic, grids) and your license key are stored in your own user folder (<code>~/Library/Application Support/GeoPicks</code> on a Mac, <code>%APPDATA%\GeoPicks</code> on Windows) and are never uploaded. License keys are checked on your computer; there is no activation server. The app has no analytics, telemetry or crash reporting.</p>
+<p>Starting with GeoPicks 1.7.1, each beta key works on one computer. The <b>Machine ID</b> shown on the Activate screen (it looks like <code>GPM-XXXX-XXXX-XXXX</code>) is a one-way hash of the computer's hardware ID (on Windows, the ID Windows assigns to the installation) that GeoPicks computes on the device. The hardware ID itself never leaves your computer, and the Machine ID can't be turned back into it. The Machine ID is only sent when you choose to send it, on a form on this website or by email, or when the <i>Share feedback</i> button puts it in the feedback link. It is used only to issue a key for that computer.</p>
 
 <h2>What the app sends over the network</h2>
 <p>None of these sends your project files. Each one goes straight from your computer to the service named.</p>
@@ -33,15 +34,15 @@ footer{color:var(--mut);font-size:14px;padding:40px 0;border-top:1px solid #222;
 <li><b>Township/range/section grid (BLM), only when you turn it on.</b> The T-R-S overlay sends the bounding box around your located wells to the BLM land-survey (PLSS) service. The result is saved with the project, so it isn't fetched again.</li>
 <li><b>Street basemap (OpenStreetMap), only when you choose it.</b> The <i>Streets</i> background loads map tiles from OpenStreetMap, which reveals the area of the map you're viewing. The default <i>Plain</i> background loads nothing.</li>
 <li><b>Fonts and map library.</b> Since GeoPicks 1.7.0, the app's typefaces and the Leaflet map library are bundled with the app and are no longer fetched from the internet. (Version 1.6.3 and earlier load the typefaces from Google Fonts and Leaflet from unpkg.com: ordinary web requests with your IP address and no project data.)</li>
-<li><b>Beta feedback button.</b> Near the end of a beta key, GeoPicks shows a <i>Share feedback</i> button. Clicking it opens the feedback page on this website in your browser, with the name and email from your license filled in.</li>
+<li><b>Beta feedback button.</b> Near the end of a beta key, GeoPicks shows a <i>Share feedback</i> button. Clicking it opens the feedback page on this website in your browser, with the name and email from your license filled in. Since GeoPicks 1.7.1, the link also includes this computer's Machine ID, so the form can fill it in. Nothing is sent until you submit the form.</li>
 </ul>
 <p>Links you click (release notes, the download page, email) open in your web browser.</p>
 
 <h2>This website</h2>
 <ul>
 <li>No analytics, no tracking scripts, no cookies. The site is plain HTML hosted on GitHub Pages, which, like any web host, receives your IP address when you visit.</li>
-<li>The beta signup form sends your name, email, company, platform and notes to <a href="https://formspree.io">Formspree</a>, which emails them to me. I use them to send your beta license key and to follow up about GeoPicks.</li>
-<li>The <a href="feedback.html">beta feedback form</a> sends your answers to Formspree the same way, which emails them to me. I use them to send your additional 3-month key and to improve GeoPicks, and I quote you on this website only if you said yes on the form.</li>
+<li>The beta signup form sends your name, email, company, platform, Machine ID (if you enter one) and notes to <a href="https://formspree.io">Formspree</a>, which emails them to me. I use them to send your beta license key and to follow up about GeoPicks. The Machine ID is used only to issue your key for that computer.</li>
+<li>The <a href="feedback.html">beta feedback form</a> sends your answers, including your Machine ID, to Formspree the same way, which emails them to me. I use them to send your additional 3-month key for that computer and to improve GeoPicks, and I quote you on this website only if you said yes on the form.</li>
 <li>The download buttons fetch the installer from GitHub.</li>
 </ul>
 
