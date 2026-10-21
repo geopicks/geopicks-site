@@ -3,22 +3,23 @@
 <meta name="description" content="What the GeoPicks app and the getgeopicks.com site send over the network, and what they don't.">
 <link rel="canonical" href="https://getgeopicks.com/privacy.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="theme-color" content="#121212">
+<meta name="theme-color" content="#0b0c0a">
 <meta property="og:type" content="website"><meta property="og:site_name" content="GeoPicks">
 <meta property="og:title" content="Privacy · GeoPicks"><meta property="og:description" content="GeoPicks runs on your own machine. Here is exactly what it sends over the network.">
 <meta property="og:url" content="https://getgeopicks.com/privacy.html"><meta property="og:image" content="https://getgeopicks.com/og.jpg">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://getgeopicks.com/og.jpg">
+<link rel="stylesheet" href="fonts/fonts.css"><link rel="stylesheet" href="site.css">
 <style>
-:root{--o:#e8783c;--bg:#121212;--fg:#e8e8e8;--mut:#a0a0a0}
-*{box-sizing:border-box}body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
-.wrap{max-width:780px;margin:0 auto;padding:0 22px}
-header{padding:22px 0;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:800;letter-spacing:.08em;font-size:22px;color:var(--fg);text-decoration:none}.logo span{color:var(--o)}
-a{color:var(--o)}h1{font-size:clamp(28px,5vw,40px);margin:20px 0 8px}h2{font-size:21px;margin:30px 0 8px;color:var(--o)}
-p,li{color:#c8c8c8}ul{padding-left:20px}li{margin:6px 0}.mut{color:var(--mut);font-size:14px}code{font-size:14px;color:var(--fg)}
-footer{color:var(--mut);font-size:14px;padding:40px 0;border-top:1px solid #222;margin-top:40px}
-</style></head><body><div class="wrap">
-<header><a class="logo" href="./">GEO<span>PICKS</span></a><a href="./#beta">Join the beta</a></header>
+body{line-height:1.6}
+.wrap{max-width:800px;margin:0 auto;padding:0 28px}
+h1{font-size:clamp(1.9rem,5vw,2.6rem);font-weight:700;letter-spacing:-.03em;margin:1.6rem 0 .5rem;line-height:1.15}
+h2{font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pyrite);margin:2rem 0 .5rem}
+p,li{color:#d9cfba}ul{padding-left:20px}li{margin:6px 0}b{color:#f0e6d0}.mut{color:var(--muted);font-size:.88rem;font-family:var(--mono);letter-spacing:.04em}code{font-family:var(--mono);font-size:.85rem;color:var(--ink)}
+@media (max-width:640px){.wrap{padding:0 16px 0 22px}}
+</style></head><body>
+<div class="rail" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<header class="nav"><a class="brand" href="./"><span class="mark"></span>GEOPICKS</a><span class="kicker">Well control · seismic · raster native</span><a class="btn ghost navlink" href="./#beta">Join the beta</a></header>
+<div class="wrap">
 <h1>Privacy</h1>
 <p class="mut">Last updated October 2026 (GeoPicks 1.7.1).</p>
 

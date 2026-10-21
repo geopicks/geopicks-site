@@ -4,39 +4,34 @@
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://getgeopicks.com/feedback.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
-<meta name="theme-color" content="#121212">
+<meta name="theme-color" content="#0b0c0a">
 <meta property="og:type" content="website"><meta property="og:site_name" content="GeoPicks">
 <meta property="og:title" content="GeoPicks beta feedback"><meta property="og:description" content="A few minutes of honest feedback earns 3 more months of your GeoPicks beta key.">
 <meta property="og:url" content="https://getgeopicks.com/feedback.html"><meta property="og:image" content="https://getgeopicks.com/og.jpg">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://getgeopicks.com/og.jpg">
+<link rel="stylesheet" href="fonts/fonts.css"><link rel="stylesheet" href="site.css">
 <style>
-:root{--o:#e8783c;--bg:#121212;--fg:#e8e8e8;--mut:#a0a0a0}
-*{box-sizing:border-box}body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.55}
-.wrap{max-width:780px;margin:0 auto;padding:0 22px}
-header{padding:22px 0;display:flex;justify-content:space-between;align-items:center;gap:12px}
-.logo{font-weight:800;letter-spacing:.08em;font-size:22px;color:var(--fg);text-decoration:none}.logo span{color:var(--o)}
-a{color:var(--o)}h1{font-size:clamp(28px,5vw,40px);margin:20px 0 8px;line-height:1.2}.lede{color:var(--mut);margin:0 0 22px}
-a.btn,button{background:var(--o);color:#111;border:0;border-radius:8px;padding:12px 22px;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer}
-button:disabled{opacity:.6;cursor:default}
-form{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:10px;padding:24px;display:grid;gap:18px}
-input[type=text],input[type=email],select,textarea{width:100%;padding:11px;border-radius:7px;border:1px solid #333;background:#111;color:var(--fg);font-size:15px;font-family:inherit}
-label,legend{font-size:14px;color:var(--mut)}.req{color:var(--o)}
+.wrap{max-width:800px;margin:0 auto;padding:0 28px}
+h1{font-size:clamp(1.9rem,5vw,2.6rem);font-weight:700;letter-spacing:-.03em;margin:1.6rem 0 .5rem;line-height:1.15}
+.lede{color:#d9cfba;margin:0 0 22px}
+form{padding:24px;display:grid;gap:18px}
+.req{color:var(--accent)}
 fieldset{border:0;margin:0;padding:0;min-width:0}legend{padding:0;margin-bottom:8px}
-.hint{display:block;font-size:13px;color:#8a8a8a;margin:4px 0 0}
 .opts{display:flex;flex-wrap:wrap;gap:8px}
-.opts label{display:flex;align-items:center;gap:7px;background:#141414;border:1px solid #2e2e2e;border-radius:7px;padding:8px 11px;color:var(--fg);cursor:pointer;font-size:14px}
-.opts input{accent-color:var(--o);margin:0}
+.opts label{display:flex;align-items:center;gap:7px;background:rgba(10,9,7,.9);border:1px solid #3a2e20;border-radius:3px;padding:8px 11px;color:var(--ink);cursor:pointer;font-size:.88rem}
+.opts label:hover{border-color:var(--pyrite)}
+.opts input{accent-color:var(--accent);margin:0;width:auto}
 .checks{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
 .rate{display:grid;grid-template-columns:minmax(130px,1fr) auto;gap:8px 14px;align-items:center}
-.rate .name{color:var(--fg);font-size:15px}.rate .opts label{padding:7px 12px;min-width:44px;justify-content:center}
-.scale{font-size:12px;color:#8a8a8a;margin:0 0 6px}
+.rate .name{color:var(--ink);font-size:.95rem}.rate .opts label{padding:7px 12px;min-width:44px;justify-content:center}
+.scale{font-size:.78rem;color:var(--muted);margin:0 0 6px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.err{color:#ff8a80;font-size:14px;margin:0}[hidden]{display:none!important}
-.ty{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:10px;padding:24px}.ty h3{margin:0 0 10px;color:var(--o)}.ty p{color:var(--mut)}
-footer{color:var(--mut);font-size:14px;padding:40px 0;border-top:1px solid #222;margin-top:40px}
-@media (max-width:640px){.checks{grid-template-columns:1fr 1fr}.checks label{font-size:13px;padding:8px}.two{grid-template-columns:1fr}.rate{grid-template-columns:1fr}.rate .name{margin-top:6px}form{padding:18px}}
-</style></head><body><div class="wrap">
-<header><a class="logo" href="./">GEO<span>PICKS</span></a><a href="./#beta">Join the beta</a></header>
+.ty{padding:24px}.ty h3{margin:0 0 10px;color:var(--accent)}.ty p{color:#d9cfba}
+@media (max-width:640px){.wrap{padding:0 16px 0 22px}.checks{grid-template-columns:1fr 1fr}.checks label{font-size:.8rem;padding:8px}.two{grid-template-columns:1fr}.rate{grid-template-columns:1fr}.rate .name{margin-top:6px}form{padding:18px}}
+</style></head><body>
+<div class="rail" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+<header class="nav"><a class="brand" href="./"><span class="mark"></span>GEOPICKS</a><span class="kicker">Well control · seismic · raster native</span><a class="btn ghost navlink" href="./#beta">Join the beta</a></header>
+<div class="wrap">
 <h1>Beta feedback</h1>
 <p class="lede">Your beta key covers 3 months. Fill this out and I'll send you a key for 3 more (6 months total). Honest beats polite: the confusing parts help me most. Fields marked <span class="req">*</span> are required.</p>
 
